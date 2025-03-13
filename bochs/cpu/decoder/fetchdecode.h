@@ -411,6 +411,7 @@ const unsigned MASK_K0_OFFSET = 8;
 const unsigned SRC_EQ_DST_OFFSET = 7;
 const unsigned RRR_OFFSET = 4;
 const unsigned NNN_OFFSET = 0;
+const unsigned BX_CPU_JMPE = 38;
 
 const Bit64u ATTR_OS64 = ((BX_CONST64(3)<<OS32_OFFSET) << 24) | (BX_CONST64(3)<<OS32_OFFSET);
 const Bit64u ATTR_OS32 = ((BX_CONST64(1)<<OS32_OFFSET) << 24) | (BX_CONST64(3)<<OS32_OFFSET);

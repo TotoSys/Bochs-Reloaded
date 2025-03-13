@@ -839,6 +839,19 @@ bool BX_CPU_C::dbg_instruction_epilog(void)
 }
 #endif
 
+#if BX_IA64_SUPPORT
+  BX_CPU_THIS_PTR ia64_mode = false;
+  // Initialize IA64 register state
+  for (int i=0; i < BX_IA64_REGISTER_COUNT; i++) {
+    BX_CPU_THIS_PTR ia64_regs[i] = 0;
+  }
+#endif
+
+// Include the IA64 support header if enabled
+#if BX_IA64_SUPPORT
+#include "ia64.h"
+#endif
+
 #if BX_GDBSTUB
 bool BX_CPU_C::gdbstub_instruction_epilog(void)
 {

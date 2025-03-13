@@ -41,6 +41,7 @@ BX_INCDIRS = -I.. -I$(srcdir)/.. -I../@INSTRUMENT_DIR@ -I$(srcdir)/../@INSTRUMEN
 # Objects which are synced between the cpu and cpu64 code and
 # are used for either compile.
 OBJS = \
+	@ia64_obj@ \
 	init.o \
 	cpu.o \
 	event.o \
@@ -153,7 +154,9 @@ OBJS64 = \
 BX_INCLUDES = ../bochs.h ../config.h
 
 
-all: libcpu.a
+IA64_OBJS = ia64.o ia64_bundle.o
+
+all: libcpu.a 
 
 .@CPP_SUFFIX@.o:
 	$(CXX) @DASH@c $(BX_INCDIRS) $(CPPFLAGS) $(CXXFLAGS) @CXXFP@$< @OFP@$@
@@ -187,6 +190,18 @@ dist-clean: clean
  fpu/status_w.h fpu/control_w.h crregs.h descriptor.h decoder/instr.h \
  lazy_flags.h tlb.h icache.h xmm.h vmx.h vmx_ctrls.h stack.h access.h
 3dnow_rcp.o: 3dnow_rcp.@CPP_SUFFIX@ ../bochs.h ../config.h ../osdep.h ../logio.h \
+ ../misc/bswap.h cpu.h decoder/decoder.h decoder/features.h \
+ ../instrument/stubs/instrument.h i387.h \
+ softfloat3e/include/softfloat_types.h ../config.h fpu/tag_w.h \
+ fpu/status_w.h fpu/control_w.h crregs.h descriptor.h decoder/instr.h \
+ lazy_flags.h tlb.h icache.h xmm.h vmx.h vmx_ctrls.h stack.h access.h
+ia64.o: ia64.@CPP_SUFFIX@ ../bochs.h ../config.h ../osdep.h ../logio.h \
+ ../misc/bswap.h cpu.h decoder/decoder.h decoder/features.h \
+ ../instrument/stubs/instrument.h i387.h \
+ softfloat3e/include/softfloat_types.h ../config.h fpu/tag_w.h \
+ fpu/status_w.h fpu/control_w.h crregs.h descriptor.h decoder/instr.h \
+ lazy_flags.h tlb.h icache.h xmm.h vmx.h vmx_ctrls.h stack.h access.h
+ia64_bundle.o: ia64_bundle.@CPP_SUFFIX@ ../bochs.h ../config.h ../osdep.h ../logio.h \
  ../misc/bswap.h cpu.h decoder/decoder.h decoder/features.h \
  ../instrument/stubs/instrument.h i387.h \
  softfloat3e/include/softfloat_types.h ../config.h fpu/tag_w.h \

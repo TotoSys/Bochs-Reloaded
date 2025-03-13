@@ -100,6 +100,7 @@ x86_feature(BX_ISA_AVX512, "avx512")                                    /* AVX-5
 x86_feature(BX_ISA_AVX512_DQ, "avx512dq")                               /* AVX-512DQ instruction */
 x86_feature(BX_ISA_AVX512_BW, "avx512bw")                               /* AVX-512 Byte/Word instruction */
 x86_feature(BX_ISA_AVX512_CD, "avx512cd")                               /* AVX-512 Conflict Detection instruction */
+x86_feature(BX_ISA_JMPE, "jmpe")
 //x86_feature(BX_ISA_AVX512_PF, "avx512pf")                             /* AVX-512 Sparse Prefetch instruction */
 //x86_feature(BX_ISA_AVX512_ER, "avx512er")                             /* AVX-512 Exponential/Reciprocal instruction */
 x86_feature(BX_ISA_AVX512_VBMI, "avx512vbmi")                           /* AVX-512 VBMI : Vector Bit Manipulation Instructions */

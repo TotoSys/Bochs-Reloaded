@@ -604,6 +604,12 @@ Bit32u bx_cpuid_t::get_std_cpuid_leaf_1_edx_common(Bit32u extra) const
   if (is_cpu_extension_supported(BX_ISA_VME))
     edx |= BX_CPUID_STD1_EDX_VME;
 
+  #if BX_IA64_SUPPORT
+    // Set bit 30 in EDX to indicate IA-64 capability through JMPE
+  if (is_cpu_extension_supported(BX_ISA_JMPE))
+    edx |= (1 << 30); // IA-64 Capability bit
+  #endif
+
   // [2:2]   DE: Debug Extensions (I/O breakpoints)
   if (is_cpu_extension_supported(BX_ISA_DEBUG_EXTENSIONS))
     edx |= BX_CPUID_STD1_EDX_DEBUG_EXTENSIONS;
